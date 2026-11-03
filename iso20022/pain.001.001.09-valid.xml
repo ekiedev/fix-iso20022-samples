@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09">
+ <CstmrCdtTrfInitn>
+  <GrpHdr><MsgId>PAYRUN-2026-12-01</MsgId><CreDtTm>2026-11-30T09:00:00</CreDtTm><NbOfTxs>2</NbOfTxs><CtrlSum>6000.00</CtrlSum><InitgPty><Nm>Example Trading GmbH</Nm></InitgPty></GrpHdr>
+  <PmtInf>
+   <PmtInfId>PAYRUN-1201</PmtInfId><PmtMtd>TRF</PmtMtd><BtchBookg>true</BtchBookg><NbOfTxs>2</NbOfTxs><CtrlSum>6000.00</CtrlSum>
+   <PmtTpInf><SvcLvl><Cd>SEPA</Cd></SvcLvl></PmtTpInf>
+   <ReqdExctnDt><Dt>2026-12-01</Dt></ReqdExctnDt>
+   <Dbtr><Nm>Example Trading GmbH</Nm><PstlAdr><StrtNm>Hauptstrasse</StrtNm><BldgNb>12</BldgNb><PstCd>60311</PstCd><TwnNm>Frankfurt am Main</TwnNm><Ctry>DE</Ctry></PstlAdr></Dbtr>
+   <DbtrAcct><Id><IBAN>DE89370400440532013000</IBAN></Id></DbtrAcct>
+   <DbtrAgt><FinInstnId><BICFI>COBADEFFXXX</BICFI></FinInstnId></DbtrAgt>
+   <ChrgBr>SLEV</ChrgBr>
+   <CdtTrfTxInf><PmtId><EndToEndId>SUP-91001</EndToEndId></PmtId><Amt><InstdAmt Ccy="EUR">4200.00</InstdAmt></Amt>
+    <Cdtr><Nm>Alpenblick Software AG</Nm><PstlAdr><TwnNm>Wien</TwnNm><Ctry>AT</Ctry></PstlAdr></Cdtr><CdtrAcct><Id><IBAN>AT611904300234573201</IBAN></Id></CdtrAcct><RmtInf><Ustrd>Licence renewal 2027</Ustrd></RmtInf></CdtTrfTxInf>
+   <CdtTrfTxInf><PmtId><EndToEndId>SUP-91002</EndToEndId></PmtId><Amt><InstdAmt Ccy="EUR">1800.00</InstdAmt></Amt>
+    <Cdtr><Nm>Brussels Data Centre NV</Nm><PstlAdr><StrtNm>Rue de la Loi</StrtNm><BldgNb>200</BldgNb><PstCd>1040</PstCd><TwnNm>Brussels</TwnNm><Ctry>BE</Ctry></PstlAdr></Cdtr><CdtrAcct><Id><IBAN>BE68539007547034</IBAN></Id></CdtrAcct><RmtInf><Strd><CdtrRefInf><Tp><CdOrPrtry><Cd>SCOR</Cd></CdOrPrtry></Tp><Ref>RF18539007547034</Ref></CdtrRefInf></Strd></RmtInf></CdtTrfTxInf>
+  </PmtInf>
+ </CstmrCdtTrfInitn>
+</Document>

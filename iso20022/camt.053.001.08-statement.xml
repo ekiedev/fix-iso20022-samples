@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08">
+ <BkToCstmrStmt>
+  <GrpHdr><MsgId>STMT-20261102-0001</MsgId><CreDtTm>2026-11-02T21:05:11+01:00</CreDtTm></GrpHdr>
+  <Stmt>
+   <Id>20261102-DE89370400440532013000</Id><ElctrncSeqNb>214</ElctrncSeqNb><CreDtTm>2026-11-02T21:05:11+01:00</CreDtTm>
+   <FrToDt><FrDtTm>2026-11-02T00:00:00+01:00</FrDtTm><ToDtTm>2026-11-02T23:59:59+01:00</ToDtTm></FrToDt>
+   <Acct><Id><IBAN>DE89370400440532013000</IBAN></Id><Ccy>EUR</Ccy><Ownr><Nm>Example Trading GmbH</Nm></Ownr><Svcr><FinInstnId><BICFI>COBADEFFXXX</BICFI></FinInstnId></Svcr></Acct>
+   <Bal><Tp><CdOrPrtry><Cd>PRCD</Cd></CdOrPrtry></Tp><Amt Ccy="EUR">48210.55</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><Dt>2026-10-30</Dt></Dt></Bal>
+   <Bal><Tp><CdOrPrtry><Cd>CLBD</Cd></CdOrPrtry></Tp><Amt Ccy="EUR">51640.15</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><Dt>2026-11-02</Dt></Dt></Bal>
+   <Bal><Tp><CdOrPrtry><Cd>CLAV</Cd></CdOrPrtry></Tp><Amt Ccy="EUR">51640.15</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><Dt>2026-11-02</Dt></Dt></Bal>
+   <TxsSummry><TtlNtries><NbOfNtries>5</NbOfNtries></TtlNtries><TtlCdtNtries><NbOfNtries>2</NbOfNtries><Sum>12650.00</Sum></TtlCdtNtries><TtlDbtNtries><NbOfNtries>3</NbOfNtries><Sum>9220.40</Sum></TtlDbtNtries></TxsSummry>
+   <Ntry><NtryRef>1</NtryRef><Amt Ccy="EUR">9800.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><Sts><Cd>BOOK</Cd></Sts><BookgDt><Dt>2026-11-02</Dt></BookgDt><ValDt><Dt>2026-11-02</Dt></ValDt><AcctSvcrRef>2026110200124</AcctSvcrRef>
+    <BkTxCd><Domn><Cd>PMNT</Cd><Fmly><Cd>RCDT</Cd><SubFmlyCd>ESCT</SubFmlyCd></Fmly></Domn><Prtry><Cd>NTRF+166</Cd><Issr>DK</Issr></Prtry></BkTxCd>
+    <NtryDtls><TxDtls><Refs><EndToEndId>INV-2026-0412</EndToEndId></Refs><Amt Ccy="EUR">9800.00</Amt><CdtDbtInd>CRDT</CdtDbtInd>
+     <RltdPties><Dbtr><Pty><Nm>Nordwind Logistics BV</Nm></Pty></Dbtr><DbtrAcct><Id><IBAN>NL91ABNA0417164300</IBAN></Id></DbtrAcct></RltdPties>
+     <RltdAgts><DbtrAgt><FinInstnId><BICFI>ABNANL2A</BICFI></FinInstnId></DbtrAgt></RltdAgts>
+     <RmtInf><Strd><CdtrRefInf><Tp><CdOrPrtry><Cd>SCOR</Cd></CdOrPrtry></Tp><Ref>RF18539007547034</Ref></CdtrRefInf></Strd></RmtInf></TxDtls></NtryDtls></Ntry>
+   <Ntry><NtryRef>2</NtryRef><Amt Ccy="EUR">2850.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><Sts><Cd>BOOK</Cd></Sts><BookgDt><Dt>2026-11-02</Dt></BookgDt><ValDt><Dt>2026-11-02</Dt></ValDt><AcctSvcrRef>2026110200177</AcctSvcrRef>
+    <BkTxCd><Domn><Cd>PMNT</Cd><Fmly><Cd>RCDT</Cd><SubFmlyCd>ESCT</SubFmlyCd></Fmly></Domn></BkTxCd>
+    <NtryDtls><TxDtls><Refs><EndToEndId>NOTPROVIDED</EndToEndId></Refs><Amt Ccy="EUR">2850.00</Amt><CdtDbtInd>CRDT</CdtDbtInd>
+     <RltdPties><Dbtr><Pty><Nm>Atelier Lumière SARL</Nm></Pty></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct></RltdPties>
+     <RmtInf><Ustrd>Facture 2026-1187 / commande 5541</Ustrd></RmtInf></TxDtls></NtryDtls></Ntry>
+   <Ntry><NtryRef>3</NtryRef><Amt Ccy="EUR">6000.00</Amt><CdtDbtInd>DBIT</CdtDbtInd><Sts><Cd>BOOK</Cd></Sts><BookgDt><Dt>2026-11-02</Dt></BookgDt><ValDt><Dt>2026-11-02</Dt></ValDt><AcctSvcrRef>2026110200203</AcctSvcrRef>
+    <BkTxCd><Domn><Cd>PMNT</Cd><Fmly><Cd>ICDT</Cd><SubFmlyCd>ESCT</SubFmlyCd></Fmly></Domn></BkTxCd>
+    <NtryDtls><Btch><NbOfTxs>2</NbOfTxs></Btch>
+     <TxDtls><Refs><PmtInfId>PAYRUN-1102</PmtInfId><EndToEndId>SUP-88121</EndToEndId></Refs><Amt Ccy="EUR">4200.00</Amt><CdtDbtInd>DBIT</CdtDbtInd><RltdPties><Cdtr><Pty><Nm>Alpenblick Software AG</Nm></Pty></Cdtr><CdtrAcct><Id><IBAN>AT611904300234573201</IBAN></Id></CdtrAcct></RltdPties><RmtInf><Ustrd>Licence renewal 2027</Ustrd></RmtInf></TxDtls>
+     <TxDtls><Refs><PmtInfId>PAYRUN-1102</PmtInfId><EndToEndId>SUP-88122</EndToEndId></Refs><Amt Ccy="EUR">1800.00</Amt><CdtDbtInd>DBIT</CdtDbtInd><RltdPties><Cdtr><Pty><Nm>Brussels Data Centre NV</Nm></Pty></Cdtr><CdtrAcct><Id><IBAN>BE68539007547034</IBAN></Id></CdtrAcct></RltdPties><RmtInf><Ustrd>Colocation October</Ustrd></RmtInf></TxDtls></NtryDtls></Ntry>
+   <Ntry><NtryRef>4</NtryRef><Amt Ccy="EUR">3200.00</Amt><CdtDbtInd>DBIT</CdtDbtInd><Sts><Cd>BOOK</Cd></Sts><BookgDt><Dt>2026-11-02</Dt></BookgDt><ValDt><Dt>2026-11-02</Dt></ValDt><AcctSvcrRef>2026110200251</AcctSvcrRef>
+    <BkTxCd><Domn><Cd>PMNT</Cd><Fmly><Cd>RDDT</Cd><SubFmlyCd>ESDD</SubFmlyCd></Fmly></Domn></BkTxCd>
+    <NtryDtls><TxDtls><Refs><EndToEndId>DD-2026-11-INS</EndToEndId><MndtId>MNDT-44120</MndtId></Refs><Amt Ccy="EUR">3200.00</Amt><RltdPties><Cdtr><Pty><Nm>Versicherung Beispiel AG</Nm></Pty></Cdtr><CdtrAcct><Id><IBAN>DE89370400440532013000</IBAN></Id></CdtrAcct></RltdPties><RmtInf><Ustrd>Policy 7781-22 premium Q4</Ustrd></RmtInf></TxDtls></NtryDtls></Ntry>
+   <Ntry><NtryRef>5</NtryRef><Amt Ccy="EUR">20.40</Amt><CdtDbtInd>DBIT</CdtDbtInd><Sts><Cd>BOOK</Cd></Sts><BookgDt><Dt>2026-11-02</Dt></BookgDt><ValDt><Dt>2026-11-02</Dt></ValDt><AcctSvcrRef>2026110200299</AcctSvcrRef>
+    <BkTxCd><Domn><Cd>ACMT</Cd><Fmly><Cd>MDOP</Cd><SubFmlyCd>CHRG</SubFmlyCd></Fmly></Domn></BkTxCd><AddtlNtryInf>Account maintenance fee October</AddtlNtryInf></Ntry>
+  </Stmt>
+ </BkToCstmrStmt>
+</Document>

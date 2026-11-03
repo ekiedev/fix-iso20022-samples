@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<BkToCstmrStmt>
+<GrpHdr><MsgId>SAFECAMT-STARTUMS-20261103120000</MsgId><CreDtTm>2026-11-03T12:00:00</CreDtTm><AddtlInf>Converted from MT940 by SafeCAMT (biteapps.cc) - not issued by the bank</AddtlInf></GrpHdr>
+<Stmt>
+<Id>STARTUMS-00214-001</Id>
+<ElctrncSeqNb>214</ElctrncSeqNb>
+<CreDtTm>2026-11-03T12:00:00</CreDtTm>
+<Acct><Id><IBAN>DE89370400440532013000</IBAN></Id><Ccy>EUR</Ccy></Acct>
+<Bal><Tp><CdOrPrtry><Cd>OPBD</Cd></CdOrPrtry></Tp><Amt Ccy="EUR">48210.55</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><Dt>2026-10-30</Dt></Dt></Bal>
+<Bal><Tp><CdOrPrtry><Cd>CLBD</Cd></CdOrPrtry></Tp><Amt Ccy="EUR">51640.15</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><Dt>2026-11-02</Dt></Dt></Bal>
+<Bal><Tp><CdOrPrtry><Cd>CLAV</Cd></CdOrPrtry></Tp><Amt Ccy="EUR">51640.15</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><Dt>2026-11-02</Dt></Dt></Bal>
+<TxsSummry><TtlNtries><NbOfNtries>5</NbOfNtries></TtlNtries><TtlCdtNtries><NbOfNtries>2</NbOfNtries><Sum>12650.00</Sum></TtlCdtNtries><TtlDbtNtries><NbOfNtries>3</NbOfNtries><Sum>9220.40</Sum></TtlDbtNtries></TxsSummry>
+<Ntry>
+<Amt Ccy="EUR">9800.00</Amt>
+<CdtDbtInd>CRDT</CdtDbtInd>
+<Sts><Cd>BOOK</Cd></Sts>
+<BookgDt><Dt>2026-11-02</Dt></BookgDt>
+<ValDt><Dt>2026-11-02</Dt></ValDt>
+<AcctSvcrRef>2026110200124</AcctSvcrRef>
+<BkTxCd><Prtry><Cd>NTRF+166</Cd><Issr>DK</Issr></Prtry></BkTxCd>
+<NtryDtls><TxDtls>
+<Refs><AcctSvcrRef>2026110200124</AcctSvcrRef><EndToEndId>INV-2026-0412</EndToEndId></Refs>
+<RltdPties><Dbtr><Pty><Nm>Nordwind Logistics BV</Nm></Pty></Dbtr><DbtrAcct><Id><IBAN>NL91ABNA0417164300</IBAN></Id></DbtrAcct></RltdPties>
+<RltdAgts><DbtrAgt><FinInstnId><BICFI>ABNANL2A</BICFI></FinInstnId></DbtrAgt></RltdAgts>
+<RmtInf><Ustrd>RF18539007547034</Ustrd></RmtInf>
+<AddtlTxInf>166?00SEPA GUTSCHRIFT?20EREF+INV-2026-0412?21SVWZ+RF18539007547034?30ABNANL2A?31NL91ABNA0417164300?32Nordwind Logistics BV</AddtlTxInf>
+</TxDtls></NtryDtls>
+<AddtlNtryInf>166?00SEPA GUTSCHRIFT?20EREF+INV-2026-0412?21SVWZ+RF18539007547034?30ABNANL2A?31NL91ABNA0417164300?32Nordwind Logistics BV</AddtlNtryInf>
+</Ntry>
+<Ntry>
+<Amt Ccy="EUR">2850.00</Amt>
+<CdtDbtInd>CRDT</CdtDbtInd>
+<Sts><Cd>BOOK</Cd></Sts>
+<BookgDt><Dt>2026-11-02</Dt></BookgDt>
+<ValDt><Dt>2026-11-02</Dt></ValDt>
+<AcctSvcrRef>2026110200177</AcctSvcrRef>
+<BkTxCd><Prtry><Cd>NTRF</Cd><Issr>SWIFT</Issr></Prtry></BkTxCd>
+<NtryDtls><TxDtls>
+<Refs><AcctSvcrRef>2026110200177</AcctSvcrRef><EndToEndId>NOTPROVIDED</EndToEndId></Refs>
+<RltdPties><Dbtr><Pty><Nm>Atelier Lumiere SARL</Nm></Pty></Dbtr><DbtrAcct><Id><IBAN>FR1420041010050500013M02606</IBAN></Id></DbtrAcct></RltdPties>
+<RltdAgts><DbtrAgt><FinInstnId><BICFI>PSSTFRPPXXX</BICFI></FinInstnId></DbtrAgt></RltdAgts>
+<RmtInf><Ustrd>Facture 2026-1187 commande 5541</Ustrd></RmtInf>
+<AddtlTxInf>/TRTP/SEPA CREDIT TRANSFER/IBAN/FR1420041010050500013M02606/BIC/PSSTFRPPXXX/NAME/Atelier Lumiere SARL/REMI/USTD//Facture 2026-1187 commande 5541/EREF/NOTPROVIDED</AddtlTxInf>
+</TxDtls></NtryDtls>
+<AddtlNtryInf>/TRTP/SEPA CREDIT TRANSFER/IBAN/FR1420041010050500013M02606/BIC/PSSTFRPPXXX/NAME/Atelier Lumiere SARL/REMI/USTD//Facture 2026-1187 commande 5541/EREF/NOTPROVIDED</AddtlNtryInf>
+</Ntry>
+<Ntry>
+<Amt Ccy="EUR">6000.00</Amt>
+<CdtDbtInd>DBIT</CdtDbtInd>
+<Sts><Cd>BOOK</Cd></Sts>
+<BookgDt><Dt>2026-11-02</Dt></BookgDt>
+<ValDt><Dt>2026-11-02</Dt></ValDt>
+<AcctSvcrRef>2026110200203</AcctSvcrRef>
+<BkTxCd><Prtry><Cd>NTRF+191</Cd><Issr>DK</Issr></Prtry></BkTxCd>
+<NtryDtls><TxDtls>
+<Refs><AcctSvcrRef>2026110200203</AcctSvcrRef><EndToEndId>PAYRUN-1102</EndToEndId><AcctOwnrTxId>PAYRUN-1102</AcctOwnrTxId></Refs>
+<RltdPties><Cdtr><Pty><Nm>Example Trading GmbH</Nm></Pty></Cdtr></RltdPties>
+<RmtInf><Ustrd>2 Posten</Ustrd></RmtInf>
+<AddtlTxInf>191?00SAMMEL-UEBERWEISUNG?20EREF+PAYRUN-1102?21SVWZ+2 Posten?32Example Trading GmbH</AddtlTxInf>
+</TxDtls></NtryDtls>
+<AddtlNtryInf>191?00SAMMEL-UEBERWEISUNG?20EREF+PAYRUN-1102?21SVWZ+2 Posten?32Example Trading GmbH</AddtlNtryInf>
+</Ntry>
+<Ntry>
+<Amt Ccy="EUR">3200.00</Amt>
+<CdtDbtInd>DBIT</CdtDbtInd>
+<Sts><Cd>BOOK</Cd></Sts>
+<BookgDt><Dt>2026-11-02</Dt></BookgDt>
+<ValDt><Dt>2026-11-02</Dt></ValDt>
+<AcctSvcrRef>2026110200251</AcctSvcrRef>
+<BkTxCd><Prtry><Cd>NDDT+105</Cd><Issr>DK</Issr></Prtry></BkTxCd>
+<NtryDtls><TxDtls>
+<Refs><AcctSvcrRef>2026110200251</AcctSvcrRef><EndToEndId>DD-2026-11-INS</EndToEndId><AcctOwnrTxId>MNDT-44120</AcctOwnrTxId></Refs>
+<RltdPties><Cdtr><Pty><Nm>Versicherung Beispiel AG</Nm></Pty></Cdtr><CdtrAcct><Id><IBAN>DE89370400440532013000</IBAN></Id></CdtrAcct></RltdPties>
+<RltdAgts><CdtrAgt><FinInstnId><BICFI>COBADEFFXXX</BICFI></FinInstnId></CdtrAgt></RltdAgts>
+<RmtInf><Ustrd>Policy 7781-22 premium Q4</Ustrd></RmtInf>
+<AddtlTxInf>105?00SEPA LASTSCHRIFT?20EREF+DD-2026-11-INS?21MREF+MNDT-44120?22SVWZ+Policy 7781-22 premium?23 Q4?30COBADEFFXXX?31DE89370400440532013000?32Versicherung Beispiel AG</AddtlTxInf>
+</TxDtls></NtryDtls>
+<AddtlNtryInf>105?00SEPA LASTSCHRIFT?20EREF+DD-2026-11-INS?21MREF+MNDT-44120?22SVWZ+Policy 7781-22 premium?23 Q4?30COBADEFFXXX?31DE89370400440532013000?32Versicherung Beispiel AG</AddtlNtryInf>
+</Ntry>
+<Ntry>
+<Amt Ccy="EUR">20.40</Amt>
+<CdtDbtInd>DBIT</CdtDbtInd>
+<Sts><Cd>BOOK</Cd></Sts>
+<BookgDt><Dt>2026-11-02</Dt></BookgDt>
+<ValDt><Dt>2026-11-02</Dt></ValDt>
+<AcctSvcrRef>2026110200299</AcctSvcrRef>
+<BkTxCd><Prtry><Cd>NCHG+805</Cd><Issr>DK</Issr></Prtry></BkTxCd>
+<NtryDtls><TxDtls>
+<Refs><AcctSvcrRef>2026110200299</AcctSvcrRef><EndToEndId>NOTPROVIDED</EndToEndId></Refs>
+<RmtInf><Ustrd>Kontofuehrung Oktober</Ustrd></RmtInf>
+<AddtlTxInf>805?00ENTGELT?20Kontofuehrung Oktober</AddtlTxInf>
+</TxDtls></NtryDtls>
+<AddtlNtryInf>805?00ENTGELT?20Kontofuehrung Oktober</AddtlNtryInf>
+</Ntry>
+</Stmt>
+</BkToCstmrStmt>
+</Document>
