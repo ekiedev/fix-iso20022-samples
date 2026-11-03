@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fictional broker-specific FIX 4.4 custom fields in QuickFIX DataDictionary format.
+  This is an overlay: it only adds field definitions (tags 5000-9999 and 20000+).
+  - In SafeFIX: Dictionary -> "+ Custom XML" loads it on top of the FIX 4.4 base,
+    so tag 5001 in fix/quickfix-session.log is no longer reported as UserDefined.
+  - In a QuickFIX/J or QuickFIX/n engine: merge these <field> entries into your full
+    FIX44.xml and add them to the relevant <message> definitions; engines need the full file.
+  Synthetic sample, not taken from any real venue. CC0.
+-->
+<fix type="FIX" major="4" minor="4" servicepack="0">
+  <header/>
+  <trailer/>
+  <messages/>
+  <components/>
+  <fields>
+    <field number="5001" name="StrategyID" type="STRING"/>
+    <field number="5002" name="AlgoUrgency" type="CHAR">
+      <value enum="L" description="LOW"/>
+      <value enum="M" description="MEDIUM"/>
+      <value enum="H" description="HIGH"/>
+    </field>
+    <field number="5003" name="MaxParticipationPct" type="PERCENTAGE"/>
+    <field number="5010" name="LiquidityProviderID" type="STRING"/>
+    <field number="5011" name="LPRoutingMode" type="INT">
+      <value enum="0" description="BEST_PRICE"/>
+      <value enum="1" description="PRIMARY_ONLY"/>
+      <value enum="2" description="SWEEP"/>
+    </field>
+    <field number="5020" name="MarkupPips" type="PRICEOFFSET"/>
+    <field number="20001" name="SelfMatchPrevention" type="CHAR">
+      <value enum="N" description="NONE"/>
+      <value enum="C" description="CANCEL_RESTING"/>
+      <value enum="T" description="CANCEL_TAKER"/>
+      <value enum="B" description="CANCEL_BOTH"/>
+    </field>
+  </fields>
+</fix>
