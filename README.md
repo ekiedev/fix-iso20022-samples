@@ -1,20 +1,26 @@
-# FIX protocol, SWIFT MT940 and ISO 20022 sample files
+# FIX, SWIFT MT940, ISO 20022, NACHA ACH and DORA sample files
 
-Free, **synthetic** test files for anyone building or debugging FIX engines, bank-statement imports, treasury/ERP connectors or payment-file generators:
+Free, **synthetic** test files for anyone building or debugging FIX engines, bank-statement imports, treasury/ERP connectors, payment-file generators, ACH pipelines or DORA register-of-information reporting. Every folder has files that should pass and files with documented, planted mistakes, so you can test both sides of a validator:
 
 - **FIX logs** — a FIX 4.4 order session in QuickFIX-style log format, the same session as raw SOH-delimited messages, a set of session- and business-level rejects (`35=3`, `35=j`, `35=9`, rejected `35=8`), a FIX 4.2 equity session and a FIXT.1.1 / FIX 5.0 SP2 crypto session.
 - **QuickFIX data dictionary** — a broker-specific custom-field overlay (tags 5000–9999 and 20000+) in QuickFIX XML format.
 - **SWIFT MT940 / MT942** — customer statements with German structured `:86:` (`?20`–`?63`, `EREF+`/`SVWZ+`), slash-coded `:86:` (`/IBAN/`, `/NAME/`, `/REMI/`) and Dutch-style `/CNTP/` counterparty blocks with a direct-debit return, plus an intraday MT942.
 - **ISO 20022** — `camt.053.001.02` and `camt.053.001.08` bank statements (all validate against the official XSDs), a valid `pain.001.001.09` credit-transfer file and one with typical bank-rejection errors.
+- **NACHA ACH** — a balanced PPD / CCD / WEB origination file (LF, CR LF and no-line-break variants), the same file with nine planted mistakes (check digit, entry hash, batch and file totals, trace order, addenda sequence, missing padding, 2026 `PAYROLL` / `PURCHASE` descriptions), and a returns + notifications-of-change file (R01, R02, R03, R07, R10, C01, C02, C05).
+- **DORA register of information** — a filled-in Excel register and the matching xBRL-CSV (plain-csv) reporting package for module `DORA010100`, each in a clean version and a version with planted mistakes (broken cross-template references, empty and duplicate keys, wrong LEI check digits, filing indicators, date and code formats).
 
-All companies, references and amounts are fictitious. IBANs are the widely published example IBANs (e.g. `DE89370400440532013000`, `NL91ABNA0417164300`). Nothing here comes from a real bank or client.
+All companies, people, references and amounts are fictitious. IBANs are the widely published example IBANs (e.g. `DE89370400440532013000`, `NL91ABNA0417164300`). LEIs are made-up values with correct check digits and the word EXAMPLE in them; ABA routing numbers are synthetic values that only satisfy the check-digit formula. Nothing here comes from a real bank, client or filing.
 
 ## Open them in your browser — nothing is uploaded
 
-The files are made to be dropped into two free, 100% client-side tools (no account, no upload, no tracking — verify in DevTools → Network):
+The files are made to be dropped into four free, 100% client-side tools (no account, no upload, no tracking — verify in DevTools → Network). Each tool also loads a built-in sample from the link in brackets:
 
-- **[SafeFIX](https://biteapps.cc/safefix/)** — FIX log analyzer, QuickFIX-format XML dictionary validator, reject explainer, order-latency view and log anonymizer that recalculates `BodyLength (9)` and `CheckSum (10)`.
-- **[SafeCAMT](https://biteapps.cc/safecamt/)** — camt.052/053/054 and MT940/MT942 to Excel/CSV with balance reconciliation, MT940 → camt.053 conversion, and pain.001 checks.
+- **[SafeFIX](https://safefix.biteapps.cc/)** ([sample](https://safefix.biteapps.cc/#sample)) — FIX log analyzer, QuickFIX-format XML dictionary validator, reject explainer, order-latency view and log anonymizer that recalculates `BodyLength (9)` and `CheckSum (10)`.
+- **[SafeCAMT](https://safecamt.biteapps.cc/)** ([camt.053](https://safecamt.biteapps.cc/#camt) · [MT940](https://safecamt.biteapps.cc/#mt940) · [pain.001](https://safecamt.biteapps.cc/#pain)) — camt.052/053/054 and MT940/MT942 to Excel/CSV with balance reconciliation, MT940 → camt.053 conversion, and pain.001 checks.
+- **[SafeACH](https://safeach.biteapps.cc/)** ([origination](https://safeach.biteapps.cc/#sample) · [returns](https://safeach.biteapps.cc/#returns)) — NACHA file viewer and validator: record layouts, check digits, entry hashes, batch and file totals, return and NOC codes, plus an anonymizer that recalculates every control record.
+- **[SafeDORA](https://safedora.biteapps.cc/)** ([sample](https://safedora.biteapps.cc/#sample)) — DORA register of information validator (ESA technical checks, keys and references across the 15 templates, EBA validation rules) and Excel → xBRL-CSV package builder.
+
+Reference pages that go with the files: [FIX tags & message types](https://safefix.biteapps.cc/fix-tags/) · [FIX reject reason codes](https://safefix.biteapps.cc/fix-reject-codes/) · [MT940 format](https://safecamt.biteapps.cc/mt940-format/) · [NACHA file format](https://safeach.biteapps.cc/nacha-file-format/) · [ACH return & NOC codes](https://safeach.biteapps.cc/ach-return-codes/) · [DORA RoI templates & fields](https://safedora.biteapps.cc/templates/) · [DORA validation rules](https://safedora.biteapps.cc/validation-rules/)
 
 ## Files
 
@@ -55,6 +61,33 @@ Checksums: `BodyLength (9)` counts the bytes after `9=…<SOH>` up to and includ
 | [`pain.001.001.09-valid.xml`](iso20022/pain.001.001.09-valid.xml) | SEPA credit transfer, two payments, structured addresses, one `RF` reference. | Counts, control sums, IBANs and SEPA rules all consistent. |
 | [`pain.001.001.09-with-errors.xml`](iso20022/pain.001.001.09-with-errors.xml) | Four payments with planted problems. | EUR amount with 3 decimals; IBAN with a wrong check digit (AC01); creditor name over 70 characters; duplicate EndToEndId (AM05); `CtrlSum` that does not match (AM10); one unstructured address (AdrLine only). |
 
+### `ach/`
+
+NACHA files are fixed-width: every record is exactly 94 characters, and files are padded with records of 94 nines to a multiple of 10 records. The files below were generated by [`generate_samples.py`](ach/generate_samples.py), which computes every check digit, entry hash, total and block count itself from the NACHA specification.
+
+| File | What it contains | What a validator should find |
+|---|---|---|
+| [`nacha-ppd-ccd-web-valid.ach`](ach/nacha-ppd-ccd-web-valid.ach) | One file, three batches: PPD payroll credits (`PAYROLL`, checking and savings, one prenote), CCD vendor payments each with an `05` addenda record (`RMR*IV*…`), and WEB consumer debits (`PURCHASE`, Payment Type Code `S` / `R`). 11 entries, 2 addenda, 30 records including 9 padding records. LF line endings. | No errors or warnings. File totals: debits $204.49, credits $28,911.15; entry/addenda count 13; entry hash `0078800390`; block count 3. |
+| [`nacha-valid-crlf.ach`](ach/nacha-valid-crlf.ach) | The same file with CR LF line endings. | Identical result. |
+| [`nacha-valid-no-line-breaks.ach`](ach/nacha-valid-no-line-breaks.ach) | The same 30 records as one 2,820-character line, the way some mainframe transfers deliver them. | Identical result once the stream is cut into 94-character records. |
+| [`nacha-with-errors.ach`](ach/nacha-with-errors.ach) | The valid file with nine planted mistakes. | (1) entry on line 5: routing number `053001125` fails the ABA check digit (should end in 4); (2) batch 1 control: total credit $100.00 higher than its entries; (3) lines 3–4: trace numbers not ascending; (4) batch 1: PPD wage credits described `SALARY` instead of `PAYROLL`; (5) batch 2 control: entry hash off by one; (6) line 14: addenda sequence number `0002` on the only addenda record; (7) batch 3: WEB purchase debits described `ONLINE ORD` instead of `PURCHASE`; (8) file control: entry/addenda count 12 instead of 13; (9) no padding records — 21 records instead of 30. |
+| [`nacha-returns-and-noc.ach`](ach/nacha-returns-and-noc.ach) | What the originator gets back from the receiving side: two return batches (PPD, WEB) with `99` addenda records — R03 no account, R02 account closed, R01 insufficient funds, R10 not authorized, R07 authorization revoked — and a `COR` batch with `98` addenda records: C01 corrected account number, C02 corrected routing number, C05 corrected transaction code. Each addenda record carries the original entry's trace number and RDFI. | Structurally valid; 5 returns ($4,869.49 in total) and 3 notifications of change with their corrected data decoded. |
+
+Since 20 March 2026 the Nacha rules require the Company Entry Description `PAYROLL` for PPD credits that pay wages and `PURCHASE` for e-commerce purchase debits — mistakes 4 and 7 are there to test that check.
+
+### `dora/`
+
+The register of information that financial entities report under Article 28(3) of DORA (Regulation (EU) 2022/2554, ITS (EU) 2024/2956), for the EBA reporting framework 4.0 module `DORA010100`. The fictional group is a German credit institution with a payment-institution subsidiary, an intra-group IT company, one branch, four contractual arrangements and three ICT third-party providers. The clean files use reference date 2025-12-31.
+
+| File | What it contains | What a validator should find |
+|---|---|---|
+| [`dora-register-valid.xlsx`](dora/dora-register-valid.xlsx) | Excel register: one sheet per template (`B_01.01` … `B_99.01`), header rows with the field names and column codes, drop-down lists with the EBA closed-list values. 40 data rows across all 15 templates. | Nothing: all keys filled and unique, all 22 cross-template references resolve, all LEIs pass ISO 17442. |
+| [`dora-register-with-errors.xlsx`](dora/dora-register-with-errors.xlsx) | The same register (reference date 2026-12-31) with typical spreadsheet mistakes. | One mistyped LEI in `B_01.02` (wrong check digits) that breaks the references from `B_04.01` and `B_06.01` — the kind of error that gets a whole file rejected; `ICT security` typed instead of the closed-list value `ICT security management services` in `B_05.02`; a subsequent arrangement without its overarching arrangement in `B_02.01`; an annual expense without a currency in `B_05.01`; a critical function without reasons in `B_06.01`; a not-substitutable provider without a reason in `B_07.01`. |
+| [`529900EXAMPLEBANK143.CON_DE_DORA010100_DORA_2025-12-31_20260313093000000.zip`](dora/529900EXAMPLEBANK143.CON_DE_DORA010100_DORA_2025-12-31_20260313093000000.zip) | The clean register as an xBRL-CSV (plain-csv) reporting package: `META-INF/reportPackage.json`, `reports/report.json`, `parameters.csv`, `FilingIndicators.csv` and one CSV per template with EBA codes (`eba_CO:x1`, `eba_GA:DE` …). | Passes the file-name, package-structure, parameter, filing-indicator, key and reference checks. |
+| [`529900EXAMPLEBANK143.CON_DE_DORA010100_DORA_2025-12-31_20260316101500000.zip`](dora/529900EXAMPLEBANK143.CON_DE_DORA010100_DORA_2025-12-31_20260316101500000.zip) | The same package with seven planted mistakes. | (1) `parameters.csv`: `refPeriod` 2025-12-30 does not match the file name; (2) `FilingIndicators.csv`: `B_03.03` declared `false`; (3) `b_01.03.csv`: empty key field (and the branch code in `b_04.01.csv` no longer resolves); (4) `b_02.01.csv`: duplicate key `CA-2023-0001`; (5) `b_02.02.csv`: a provider code that does not exist in `b_03.02.csv` / `b_05.01.csv` and fails the LEI check; (6) `b_05.02.csv`: `eba_TA:S99` is not in the closed list; (7) `b_06.01.csv`: a date written `28/11/2025` instead of `2025-11-28`. |
+
+These files were built and checked with SafeDORA and follow the structure of the sample package the ESAs published for the register. They have not been submitted to a competent authority — use them to test your own tooling, not as proof of what a particular authority accepts.
+
 ## MT940 → camt.053 field mapping (cheat sheet)
 
 | MT940 | camt.053 |
@@ -72,8 +105,8 @@ Checksums: `BodyLength (9)` counts the bytes after `9=…<SOH>` up to and includ
 
 [CC0 1.0](LICENSE) — public domain. Use the files in tests, docs, demos and products without attribution.
 
-Contributions of further anonymized edge cases (odd delimiters, bank-specific `:86:` dialects, other camt/pain versions) are welcome as pull requests. Please never submit real client data.
+Contributions of further anonymized edge cases (odd delimiters, bank-specific `:86:` dialects, other camt/pain versions, other SEC codes, further register scenarios) are welcome as pull requests. Please never submit real client data.
 
 ---
 
-Maintained by [Bite Apps](https://biteapps.cc/) — privacy-first FIX, SWIFT and ISO 20022 tools. Need a custom FIX bridge, QuickFIX dictionary help or a bank-format converter? support@biteapps.cc
+Maintained by [Bite Apps](https://biteapps.cc/) — privacy-first FIX, SWIFT, ISO 20022, NACHA and DORA tools. Need a custom FIX bridge, QuickFIX dictionary help, a bank-format converter or help with a DORA register? support@biteapps.cc
