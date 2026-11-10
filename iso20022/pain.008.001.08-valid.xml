@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.08">
+ <CstmrDrctDbtInitn>
+  <GrpHdr><MsgId>DD-2027-03-RUN1</MsgId><CreDtTm>2027-03-08T08:30:00</CreDtTm><NbOfTxs>4</NbOfTxs><CtrlSum>289.65</CtrlSum><InitgPty><Nm>Stadtwerke Beispiel GmbH</Nm></InitgPty></GrpHdr>
+  <PmtInf>
+   <PmtInfId>DD-RCUR-0315</PmtInfId><PmtMtd>DD</PmtMtd><NbOfTxs>4</NbOfTxs><CtrlSum>289.65</CtrlSum>
+   <PmtTpInf><SvcLvl><Cd>SEPA</Cd></SvcLvl><LclInstrm><Cd>CORE</Cd></LclInstrm><SeqTp>RCUR</SeqTp></PmtTpInf>
+   <ReqdColltnDt>2027-03-15</ReqdColltnDt>
+   <Cdtr><Nm>Stadtwerke Beispiel GmbH</Nm></Cdtr>
+   <CdtrAcct><Id><IBAN>DE89370400440532013000</IBAN></Id></CdtrAcct>
+   <CdtrAgt><FinInstnId><BICFI>COBADEFFXXX</BICFI></FinInstnId></CdtrAgt>
+   <ChrgBr>SLEV</ChrgBr>
+   <CdtrSchmeId><Id><PrvtId><Othr><Id>DE98ZZZ09999999999</Id><SchmeNm><Prtry>SEPA</Prtry></SchmeNm></Othr></PrvtId></Id></CdtrSchmeId>
+   <DrctDbtTxInf><PmtId><EndToEndId>INV-7001</EndToEndId></PmtId><InstdAmt Ccy="EUR">59.90</InstdAmt>
+    <DrctDbtTx><MndtRltdInf><MndtId>MNDT-0001</MndtId><DtOfSgntr>2024-03-01</DtOfSgntr></MndtRltdInf></DrctDbtTx>
+    <DbtrAgt><FinInstnId><Othr><Id>NOTPROVIDED</Id></Othr></FinInstnId></DbtrAgt><Dbtr><Nm>Anna Schmidt</Nm></Dbtr><DbtrAcct><Id><IBAN>AT611904300234573201</IBAN></Id></DbtrAcct>
+    <RmtInf><Ustrd>Abschlag November Vertrag 4471</Ustrd></RmtInf></DrctDbtTxInf>
+   <DrctDbtTxInf><PmtId><EndToEndId>INV-7002</EndToEndId></PmtId><InstdAmt Ccy="EUR">120.00</InstdAmt>
+    <DrctDbtTx><MndtRltdInf><MndtId>MNDT-0002</MndtId><DtOfSgntr>2025-01-20</DtOfSgntr></MndtRltdInf></DrctDbtTx>
+    <DbtrAgt><FinInstnId><Othr><Id>NOTPROVIDED</Id></Othr></FinInstnId></DbtrAgt><Dbtr><Nm>Mueller + Soehne GmbH</Nm></Dbtr><DbtrAcct><Id><IBAN>NL91ABNA0417164300</IBAN></Id></DbtrAcct>
+    <RmtInf><Ustrd>Abschlag November Vertrag 5102</Ustrd></RmtInf></DrctDbtTxInf>
+   <DrctDbtTxInf><PmtId><EndToEndId>INV-7003</EndToEndId></PmtId><InstdAmt Ccy="EUR">45.50</InstdAmt>
+    <DrctDbtTx><MndtRltdInf><MndtId>MNDT-0003</MndtId><DtOfSgntr>2025-06-15</DtOfSgntr></MndtRltdInf></DrctDbtTx>
+    <DbtrAgt><FinInstnId><Othr><Id>NOTPROVIDED</Id></Othr></FinInstnId></DbtrAgt><Dbtr><Nm>Carlos Ortega</Nm></Dbtr><DbtrAcct><Id><IBAN>ES9121000418450200051332</IBAN></Id></DbtrAcct>
+    <RmtInf><Ustrd>Abschlag November Vertrag 5377</Ustrd></RmtInf></DrctDbtTxInf>
+   <DrctDbtTxInf><PmtId><EndToEndId>INV-7004</EndToEndId></PmtId><InstdAmt Ccy="EUR">64.25</InstdAmt>
+    <DrctDbtTx><MndtRltdInf><MndtId>MNDT-0004</MndtId><DtOfSgntr>2026-01-05</DtOfSgntr></MndtRltdInf></DrctDbtTx>
+    <DbtrAgt><FinInstnId><Othr><Id>NOTPROVIDED</Id></Othr></FinInstnId></DbtrAgt><Dbtr><Nm>Sophie Dubois</Nm></Dbtr><DbtrAcct><Id><IBAN>BE68539007547034</IBAN></Id></DbtrAcct>
+    <RmtInf><Ustrd>Abschlag Dezember Zaehler 4471</Ustrd></RmtInf></DrctDbtTxInf>
+  </PmtInf>
+ </CstmrDrctDbtInitn>
+</Document>

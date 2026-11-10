@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.10">
+ <CstmrPmtStsRpt>
+  <GrpHdr><MsgId>STS-20261103-000482</MsgId><CreDtTm>2026-11-03T09:14:21</CreDtTm><InitgPty><Id><OrgId><AnyBIC>COBADEFFXXX</AnyBIC></OrgId></Id></InitgPty></GrpHdr>
+  <OrgnlGrpInfAndSts><OrgnlMsgId>PAYRUN-2026-11-05</OrgnlMsgId><OrgnlMsgNmId>pain.001.001.09</OrgnlMsgNmId><OrgnlNbOfTxs>4</OrgnlNbOfTxs><OrgnlCtrlSum>15420.50</OrgnlCtrlSum><GrpSts>PART</GrpSts></OrgnlGrpInfAndSts>
+  <OrgnlPmtInfAndSts>
+   <OrgnlPmtInfId>PAYRUN-1105</OrgnlPmtInfId><PmtInfSts>PART</PmtInfSts>
+   <TxInfAndSts><OrgnlEndToEndId>SUP-90001</OrgnlEndToEndId><TxSts>ACCP</TxSts></TxInfAndSts>
+   <TxInfAndSts><OrgnlEndToEndId>SUP-90002</OrgnlEndToEndId><TxSts>RJCT</TxSts><StsRsnInf><Rsn><Cd>AC04</Cd></Rsn><AddtlInf>Beneficiary account closed</AddtlInf></StsRsnInf>
+    <OrgnlTxRef><Amt><InstdAmt Ccy="EUR">1800.00</InstdAmt></Amt><Cdtr><Pty><Nm>Brussels Data Centre NV</Nm></Pty></Cdtr><CdtrAcct><Id><IBAN>BE68539007547034</IBAN></Id></CdtrAcct></OrgnlTxRef></TxInfAndSts>
+   <TxInfAndSts><OrgnlEndToEndId>SUP-90003</OrgnlEndToEndId><TxSts>RJCT</TxSts><StsRsnInf><Rsn><Cd>AC01</Cd></Rsn></StsRsnInf>
+    <OrgnlTxRef><Amt><InstdAmt Ccy="EUR">7920.50</InstdAmt></Amt><Cdtr><Pty><Nm>Nordwind Logistics BV</Nm></Pty></Cdtr><CdtrAcct><Id><IBAN>NL91ABNA0417164301</IBAN></Id></CdtrAcct></OrgnlTxRef></TxInfAndSts>
+   <TxInfAndSts><OrgnlEndToEndId>SUP-90003</OrgnlEndToEndId><TxSts>RJCT</TxSts><StsRsnInf><Rsn><Cd>AM05</Cd></Rsn><AddtlInf>Duplicate end-to-end reference in this batch</AddtlInf></StsRsnInf>
+    <OrgnlTxRef><Amt><InstdAmt Ccy="EUR">1500.00</InstdAmt></Amt><CdtrAcct><Id><IBAN>ES9121000418450200051332</IBAN></Id></CdtrAcct></OrgnlTxRef></TxInfAndSts>
+  </OrgnlPmtInfAndSts>
+ </CstmrPmtStsRpt>
+</Document>
